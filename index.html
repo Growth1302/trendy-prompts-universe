@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        try {
+          var origFetch = window.fetch ? window.fetch.bind(window) : null;
+          if (origFetch) {
+            var activeFetch = origFetch;
+            Object.defineProperty(window, 'fetch', {
+              get: function() { return activeFetch; },
+              set: function(fn) { activeFetch = fn; },
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {
+          try {
+            var proto = Window.prototype;
+            var desc = Object.getOwnPropertyDescriptor(proto, 'fetch');
+            if (desc && !desc.set) {
+              var handler = window.fetch;
+              Object.defineProperty(proto, 'fetch', {
+                get: function() { return handler; },
+                set: function(fn) { handler = fn; },
+                configurable: true,
+                enumerable: true
+              });
+            }
+          } catch (err) {}
+        }
+      })();
+    </script>
+    <title>Trendy Prompts Universe — Discover the Prompt Behind Every Image</title>
+    <meta name="description" content="Explore verified AI art prompts, copy complete parameters with one click, and discover creative styles across Midjourney, Flux, and Stable Diffusion." />
+    <meta property="og:site_name" content="Trendy Prompts Universe" />
+    <meta property="og:title" content="Trendy Prompts Universe — Discover the Prompt Behind Every Image" />
+    <meta property="og:description" content="Explore verified AI art prompts, copy complete parameters with one click, and discover creative styles across Midjourney, Flux, and Stable Diffusion." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Trendy Prompts Universe — Discover the Prompt Behind Every Image" />
+    <meta name="twitter:description" content="Explore verified AI art prompts, copy complete parameters with one click, and discover creative styles across Midjourney, Flux, and Stable Diffusion." />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Trendy Prompts Universe",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "All",
+        "description": "Explore verified AI art prompts, copy complete prompt parameters, and discover creative styles.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-[#09090b] text-[#f4f4f5] antialiased selection:bg-violet-600/30 selection:text-violet-200">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

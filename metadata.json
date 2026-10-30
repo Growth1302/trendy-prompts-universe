@@ -1,0 +1,6 @@
+{
+  "name": "Trendy Prompts Universe",
+  "description": "Premium AI image prompt discovery platform with cinematic art previews, instant prompt copying, and community submissions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
